@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Para Florencia, la mejor tía, hermana, hija, cuñada y amiga.">
+<meta name="robots" content="noindex">
+<title>Para Florencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sancreek&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Caveat:wght@500;700&display=swap">
+<style>
+/* Layout: cartel de fileteado porteño — fondo negro, volutas doradas, cintas con letras; secciones que alternan izquierda/derecha */
+:root{
+  --ink:#130e0b; --ink-2:#1f1712; --ink-3:#2b2019;
+  --cream:#f7ecd6; --muted:#cdb995;
+  --gold:#e9b84c; --gold-2:#b8862a;
+  --cel:#74d0f4; --red:#e2352c; --green:#43a96b; --pink:#f29bb0;
+  --display:"Sancreek", "Rye", Georgia, serif;
+  --body:"Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --hand:"Caveat", "Comic Sans MS", cursive;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{margin:0}img{max-width:100%}
+html,body{background:var(--ink);color:var(--cream)}
+body{font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+section{padding-block:72px}
+h1,h2,h3{font-weight:400;text-wrap:balance;margin:0}
+h2{font-family:var(--display);font-size:clamp(34px,6vw,58px);line-height:1.05;color:var(--gold)}
+.kicker{font-family:var(--hand);font-size:26px;color:var(--cel);margin:0 0 6px}
+p{margin:0}
+.lead{max-width:62ch;color:var(--muted);margin-top:14px}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--cel);outline-offset:3px;border-radius:6px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;padding-block:56px 64px;text-align:center;overflow:hidden}
+.frame{position:relative;border:3px solid var(--gold);border-radius:22px;padding:56px 20px 48px;
+  background:radial-gradient(120% 90% at 50% 0%, var(--ink-3) 0%, var(--ink) 70%);
+  box-shadow:inset 0 0 0 8px var(--ink), inset 0 0 0 10px var(--red)}
+.corner{position:absolute;width:min(30vw,170px);height:auto;pointer-events:none}
+.corner.tl{top:6px;left:6px}
+.corner.tr{top:6px;right:6px;transform:scaleX(-1)}
+.corner.bl{bottom:6px;left:6px;transform:scaleY(-1)}
+.corner.br{bottom:6px;right:6px;transform:scale(-1,-1)}
+.curl{fill:none;stroke-linecap:round;stroke-dasharray:420;stroke-dashoffset:0;animation:draw 2.2s ease-out both}
+.curl.c2{animation-delay:.3s}.curl.c3{animation-delay:.6s}
+@keyframes draw{from{stroke-dashoffset:420}to{stroke-dashoffset:0}}
+.leaf{animation:pop .6s 1.6s both}
+@keyframes pop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+.leaf{transform-box:fill-box;transform-origin:center}
+
+.ribbon{display:inline-block;position:relative;background:var(--red);color:var(--cream);
+  font-family:var(--display);font-size:clamp(17px,3.2vw,26px);padding:8px 34px;letter-spacing:.04em;
+  clip-path:polygon(0 0,100% 0,94% 50%,100% 100%,0 100%,6% 50%);animation:unfurl .9s .2s both}
+@keyframes unfurl{from{clip-path:polygon(50% 0,50% 0,50% 50%,50% 100%,50% 100%,50% 50%)}}
+.portrait{width:clamp(150px,30vw,220px);aspect-ratio:1;max-width:100%;margin:0 auto 22px;border-radius:50%;padding:6px;
+  background:conic-gradient(var(--gold),var(--red),var(--cel),var(--green),var(--gold));animation:rise 1s both, spin 14s linear infinite}
+.portrait img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:5px solid var(--ink);display:block;animation:unspin 14s linear infinite}
+@keyframes spin{to{rotate:360deg}}
+@keyframes unspin{to{rotate:-360deg}}
+.polaroid img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:2px}
+.name{font-family:var(--display);font-size:clamp(58px,15vw,150px);line-height:.95;margin-top:18px;
+  background:linear-gradient(180deg,#fff2c4 0%,var(--gold) 45%,var(--gold-2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 0 var(--red)) drop-shadow(0 8px 0 #000);animation:rise 1s .4s both}
+@keyframes rise{from{transform:translateY(30px) scale(.9);opacity:0}}
+.roles{margin-top:22px;font-size:clamp(20px,3.6vw,30px);font-weight:600;min-height:1.6em}
+.roles .static{color:var(--muted);font-weight:400}
+.roles .rot{color:var(--cel);border-right:3px solid var(--cel);padding-right:4px;animation:caret .8s steps(1) infinite}
+@keyframes caret{50%{border-color:transparent}}
+.hero p.sub{max-width:52ch;margin:16px auto 0;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;margin-top:28px;border:0;border-radius:999px;padding:14px 26px;
+  background:var(--gold);color:var(--ink);font-weight:800;font-size:18px;box-shadow:0 5px 0 var(--gold-2);transition:transform .15s, box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--gold-2)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--gold-2)}
+.btn svg{width:22px;height:22px}
+
+/* ---------- VITRINA ---------- */
+.trophies{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:36px}
+.trophy{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:16px;padding:22px 18px;text-align:center;transition:transform .25s}
+.trophy:hover{transform:translateY(-6px) rotate(-1deg)}
+.trophy svg{width:74px;height:84px;display:block;margin:0 auto 10px}
+.trophy:hover .cup{animation:shine 1s}
+@keyframes shine{50%{filter:brightness(1.5)}}
+.trophy h3{font-family:var(--display);font-size:28px;color:var(--cream)}
+.trophy .who{font-family:var(--hand);font-size:22px;color:var(--cel);line-height:1.1;margin:4px 0 8px}
+.trophy p{font-size:15px;color:var(--muted)}
+.note-joke{margin-top:22px;font-family:var(--hand);font-size:24px;color:var(--gold)}
+
+/* ---------- FAMILIA ---------- */
+.fam-band{background:var(--ink-2);border-block:3px solid var(--gold)}
+.family{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;margin-top:34px}
+.person{background:var(--ink);border:2px solid var(--ink-3);border-radius:18px;padding:14px 12px 16px;text-align:center;color:var(--cream);
+  transition:border-color .2s, transform .2s;position:relative}
+.person:hover{border-color:var(--gold);transform:translateY(-4px)}
+.person[aria-pressed="true"]{border-color:var(--cel)}
+.person svg{width:96px;height:96px;display:block;margin:0 auto 6px}
+.person .nm{font-weight:800;font-size:18px;display:block}
+.person .rl{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;display:block}
+.person.star{border-color:var(--gold);background:linear-gradient(180deg,var(--ink-3),var(--ink))}
+.person.star .nm{color:var(--gold)}
+.bubble{margin-top:22px;min-height:96px;background:var(--cream);color:var(--ink);border-radius:18px;padding:18px 22px;
+  font-family:var(--hand);font-size:clamp(22px,3.4vw,28px);line-height:1.25;position:relative;max-width:760px}
+.bubble::before{content:"";position:absolute;top:-12px;left:42px;border:12px solid transparent;border-top:0;border-bottom-color:var(--cream)}
+.bubble b{font-family:var(--body);font-size:15px;display:block;color:var(--red);letter-spacing:.06em;text-transform:uppercase}
+.bounce{animation:bump .35s}
+@keyframes bump{50%{transform:scale(1.03)}}
+
+/* ---------- CLÁSICO ---------- */
+.clasico{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;margin-top:30px}
+.kits{display:flex;justify-content:center;align-items:flex-end;gap:10px;position:relative;min-height:240px}
+.kit{width:min(42vw,170px);transition:transform .4s}
+.kit.racing{animation:sway 3s ease-in-out infinite}
+.kit.rojo{animation:sway 3s ease-in-out infinite reverse}
+@keyframes sway{50%{transform:rotate(4deg) translateY(-6px)}}
+.vs{font-family:var(--display);font-size:42px;color:var(--gold);align-self:center}
+.heartbig{position:absolute;bottom:-10px;left:50%;width:70px;transform:translateX(-50%);animation:beat 1.2s infinite}
+@keyframes beat{0%,100%{transform:translateX(-50%) scale(1)}15%{transform:translateX(-50%) scale(1.2)}30%{transform:translateX(-50%) scale(1)}45%{transform:translateX(-50%) scale(1.12)}}
+.score{background:var(--ink-2);border-radius:18px;padding:24px;border:1px solid var(--ink-3)}
+.score .tag{display:inline-block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-right:6px}
+.tag.cel{background:var(--cel);color:var(--ink)}.tag.red{background:var(--red);color:var(--cream)}
+.counter{font-family:var(--display);font-size:clamp(46px,9vw,76px);color:var(--cel);line-height:1;margin-top:18px;font-variant-numeric:tabular-nums}
+.counter small{display:block;font-family:var(--body);font-size:14px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
+.quip{font-family:var(--hand);font-size:26px;color:var(--gold);min-height:2.4em;margin-top:10px;line-height:1.15}
+.btn.cel{background:var(--cel);box-shadow:0 5px 0 #3a9cc4}
+.btn.cel:hover{box-shadow:0 7px 0 #3a9cc4}
+
+/* ---------- FOTOS ---------- */
+.wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px;margin-top:36px}
+.polaroid{background:#fbf6ea;padding:12px 12px 14px;border-radius:4px;box-shadow:0 14px 30px rgba(0,0,0,.45);transition:transform .3s;position:relative}
+.polaroid:nth-child(odd){transform:rotate(-3deg)}
+.polaroid:nth-child(even){transform:rotate(2.5deg)}
+.polaroid:hover{transform:rotate(0) scale(1.04);z-index:2}
+.polaroid::before{content:"";position:absolute;top:-10px;left:50%;width:70px;height:22px;transform:translateX(-50%) rotate(-2deg);background:rgba(233,184,76,.75)}
+.polaroid svg{display:block;width:100%;height:auto;aspect-ratio:1;border-radius:2px}
+.polaroid figcaption{font-family:var(--hand);font-size:24px;color:#2a1d14;text-align:center;margin-top:8px;line-height:1.1}
+figure{margin:0}
+
+/* ---------- CARTA ---------- */
+.letter{max-width:720px;margin:34px auto 0;background:var(--cream);color:#2a1d14;border-radius:6px;padding:40px clamp(20px,5vw,52px);
+  box-shadow:0 0 0 6px var(--ink), 0 0 0 9px var(--gold), 0 24px 50px rgba(0,0,0,.5);position:relative}
+.letter p{font-size:18px;margin-top:14px}
+.letter .hello{font-family:var(--hand);font-size:36px;margin:0;color:var(--red)}
+.letter .sign{font-family:var(--hand);font-size:32px;text-align:right;margin-top:24px;color:var(--ink)}
+.letter .sign span{display:block;font-family:var(--body);font-size:14px;color:#6d5a44}
+.stamp{position:absolute;top:-22px;right:18px;width:84px;height:84px;transform:rotate(12deg)}
+
+footer{text-align:center;padding-block:40px 60px;color:var(--muted);font-size:15px}
+footer .heart-btn{background:none;border:0;color:var(--red);font-size:15px;text-decoration:underline;text-underline-offset:3px}
+
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+
+@media (max-width:720px){
+  .clasico{grid-template-columns:1fr}
+  section{padding-block:56px}
+  .frame{padding:48px 14px 40px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<!-- ornamento reusable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b8"/><stop offset=".5" stop-color="#e9b84c"/><stop offset="1" stop-color="#9a6b1c"/></linearGradient>
+    <symbol id="filete" viewBox="0 0 200 200">
+      <path class="curl" stroke="url(#goldG)" stroke-width="7" d="M12 190 C12 90 60 20 150 22 C192 24 196 76 160 84 C128 92 118 58 142 54"/>
+      <path class="curl c2" stroke="#e2352c" stroke-width="5" d="M12 150 C20 100 50 70 92 66 C122 63 130 90 108 98 C92 104 84 88 96 84"/>
+      <path class="curl c3" stroke="#74d0f4" stroke-width="4" d="M40 190 C44 150 70 128 100 130 C124 132 124 156 106 158"/>
+      <g class="leaf"><path d="M150 22 C170 4 196 10 198 16 C186 30 166 34 150 22Z" fill="#43a96b"/></g>
+      <g class="leaf"><path d="M92 66 C96 44 116 36 122 40 C118 58 104 66 92 66Z" fill="#43a96b"/></g>
+      <g class="leaf"><circle cx="64" cy="112" r="9" fill="#f29bb0"/><circle cx="64" cy="112" r="4" fill="#e9b84c"/></g>
+    </symbol>
+    <symbol id="cup" viewBox="0 0 74 84">
+      <g class="cup">
+      <path d="M14 6h46v14c0 16-10 28-23 28S14 36 14 20Z" fill="url(#goldG)"/>
+      <path d="M14 12H4c0 12 6 18 12 19M60 12h10c0 12-6 18-12 19" fill="none" stroke="#e9b84c" stroke-width="4"/>
+      <rect x="32" y="46" width="10" height="14" fill="#b8862a"/>
+      <path d="M20 60h34l4 14H16Z" fill="#e9b84c"/>
+      <rect x="12" y="74" width="50" height="8" rx="2" fill="#2b2019" stroke="#e9b84c" stroke-width="2"/>
+      <path d="M26 14c0 12 4 20 10 24" stroke="#fff6d6" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="frame">
+      <svg class="corner tl" viewBox="0 0 200 200"><use href="#filete"/></svg>
+      <svg class="corner tr" viewBox="0 0 200 200"><use href="#filete"/></svg>
+      <svg class="corner bl" viewBox="0 0 200 200"><use href="#filete"/></svg>
+      <svg class="corner br" viewBox="0 0 200 200"><use href="#filete"/></svg>
+
+      <div class="portrait"><img src="img/flor-retrato.jpg" alt="Florencia sonriendo, con las gafas de sol en la cabeza"></div>
+      <span class="ribbon">La mejor tía del mundo</span>
+      <h1 class="name">Florencia</h1>
+      <p class="roles" aria-live="polite"><span class="static">La mejor </span><span class="rot" id="rot">hermana</span></p>
+      <p class="sub">Siempre pensando en la familia. Siempre ahí cuando hace falta. Esta página es para decirte gracias, Flor, con dibujos, colores y todo el cariño que no entra en un mensaje de WhatsApp.</p>
+      <button class="btn" id="loveBtn" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.6 1.2 4.3 2.4.7-1.2 2.1-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg>
+        Tirale amor
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="vitrina">
+    <div class="wrap">
+      <p class="kicker">La vitrina de Flor</p>
+      <h2>Cinco títulos, todos ganados de local</h2>
+      <p class="lead">Hay gente que junta copas. Flor junta algo más difícil: la confianza de toda una familia, renovada año tras año.</p>
+      <div class="trophies">
+        <article class="trophy"><svg aria-hidden="true"><use href="#cup"/></svg><h3>Hija</h3><p class="who">de Néstor y Sofía</p><p>La que llama, la que pregunta, la que aparece. Para sus viejos es abrazo y cable a tierra.</p></article>
+        <article class="trophy"><svg aria-hidden="true"><use href="#cup"/></svg><h3>Hermana</h3><p class="who">de Carolina y Guido</p><p>Una puerta que nunca se cierra. Consejo sincero, oído paciente y el hombro de siempre.</p></article>
+        <article class="trophy"><svg aria-hidden="true"><use href="#cup"/></svg><h3>Tía</h3><p class="who">de Julia, Sofía, Francisco y Agustina</p><p>La que juega, escucha, malcría un poquito y está cuando importa. Tía de las que se recuerdan toda la vida.</p></article>
+        <article class="trophy"><svg aria-hidden="true"><use href="#cup"/></svg><h3>Cuñada</h3><p class="who">de Rodrigo</p><p>Me hizo sentir de la familia desde el primer día. Solo me pide no hablar de fútbol en la mesa.</p></article>
+        <article class="trophy"><svg aria-hidden="true"><use href="#cup"/></svg><h3>Amiga</h3><p class="who">de quien la necesite</p><p>Palabra justa, abrazo largo y un mate listo. Si alguien tiene un mal día, Flor ya está en camino.</p></article>
+      </div>
+      <p class="note-joke">Tiene más títulos que el Rey de Copas. Y lo dice uno del Rojo.</p>
+    </div>
+  </section>
+
+  <section class="fam-band" id="familia">
+    <div class="wrap">
+      <p class="kicker">La familia que sostiene</p>
+      <h2>Tocá a cada uno</h2>
+      <p class="lead">Cada persona de esta lista tiene una historia con Flor. Acá van algunas.</p>
+      <div class="family" id="family"></div>
+      <div class="bubble" id="bubble" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="clasico">
+    <div class="wrap">
+      <p class="kicker">Nadie es perfecto</p>
+      <h2>El único defecto</h2>
+      <div class="clasico">
+        <div class="kits" aria-hidden="true">
+          <svg class="kit racing" viewBox="0 0 160 170">
+            <defs><clipPath id="shirtR"><path d="M48 10 L28 18 L4 50 L26 66 L38 54 L38 160 L122 160 L122 54 L134 66 L156 50 L132 18 L112 10 C106 22 94 28 80 28 C66 28 54 22 48 10Z"/></clipPath></defs>
+            <g clip-path="url(#shirtR)">
+              <rect width="160" height="170" fill="#fff"/>
+              <rect x="20" width="16" height="170" fill="#74d0f4"/><rect x="52" width="16" height="170" fill="#74d0f4"/>
+              <rect x="84" width="16" height="170" fill="#74d0f4"/><rect x="116" width="16" height="170" fill="#74d0f4"/><rect x="148" width="16" height="170" fill="#74d0f4"/>
+            </g>
+            <text x="80" y="110" text-anchor="middle" font-family="Sancreek, serif" font-size="30" fill="#130e0b">FLOR</text>
+          </svg>
+          <span class="vs">vs</span>
+          <svg class="kit rojo" viewBox="0 0 160 170">
+            <path d="M48 10 L28 18 L4 50 L26 66 L38 54 L38 160 L122 160 L122 54 L134 66 L156 50 L132 18 L112 10 C106 22 94 28 80 28 C66 28 54 22 48 10Z" fill="#e2352c"/>
+            <path d="M48 10 C54 22 66 28 80 28 C94 28 106 22 112 10" fill="none" stroke="#fff" stroke-width="4"/>
+            <text x="80" y="110" text-anchor="middle" font-family="Sancreek, serif" font-size="28" fill="#fff">RODRI</text>
+          </svg>
+          <svg class="heartbig" viewBox="0 0 24 24"><path fill="#f29bb0" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.2 0 3.6 1.2 4.3 2.4.7-1.2 2.1-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg>
+        </div>
+        <div class="score">
+          <p><span class="tag cel">Academia</span><span class="tag red">Rey de Copas</span></p>
+          <p class="lead" style="margin-top:14px;color:var(--cream)">Flor es hincha de Racing de Avellaneda. Yo soy de Independiente. Las dos canchas están a unos 300 metros, y nosotros todavía más cerca. La quiero igual. Bueno, un poquito más cuando gana el Rojo.</p>
+          <p class="counter" id="count">1<small>veces que la perdoné por ser de Racing</small></p>
+          <p class="quip" id="quip">Hacé clic. Siempre hay perdón para Flor.</p>
+          <button class="btn cel" id="forgive" type="button">Perdonarla otra vez</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recuerdos">
+    <div class="wrap">
+      <p class="kicker">Momentos</p>
+      <h2>Las fotos de siempre</h2>
+      <p class="lead">La sonrisa de siempre, y las escenas que se repiten en esta familia. En todas aparece Flor.</p>
+      <div class="wall">
+        <figure class="polaroid"><img src="img/flor-gafas.jpg" alt="Florencia sonriendo con gafas y el pelo rizado" loading="lazy"><figcaption>Esa sonrisa lo arregla todo</figcaption></figure>
+        <figure class="polaroid"><img src="img/flor-sol.jpg" alt="Florencia con gafas de sol a contraluz" loading="lazy"><figcaption>Modo verano activado</figcaption></figure>
+        <figure class="polaroid"><img src="img/flor-sonrisa.jpg" alt="Florencia sonriendo frente a una pared roja" loading="lazy"><figcaption>Fondo rojo. Le queda bien.</figcaption></figure>
+        <figure class="polaroid"><img src="img/flor-atardecer.jpg" alt="Florencia sonriendo al atardecer" loading="lazy"><figcaption>Atardecer con la mejor tía</figcaption></figure>
+        <figure class="polaroid">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Dibujo de un mate humeante">
+            <rect width="200" height="200" fill="#ffe7b3"/><circle cx="160" cy="40" r="22" fill="#f6b74a"/>
+            <path d="M60 90h80l-6 70a14 14 0 0 1-14 12H80a14 14 0 0 1-14-12Z" fill="#8b4a2b"/>
+            <path d="M58 86h84v10H58Z" fill="#c9a24a"/><path d="M70 88c10-6 50-6 60 0" fill="#4b8b3b"/>
+            <path d="M118 30 l-8 64" stroke="#c0c0c0" stroke-width="6" stroke-linecap="round"/>
+            <path class="steam" d="M86 70c-6-10 6-16 0-26M100 66c-6-10 6-16 0-26" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/>
+            <path d="M74 120 q26 10 52 0" stroke="#e9b84c" stroke-width="4" fill="none"/>
+          </svg>
+          <figcaption>Mates y charla larga</figcaption>
+        </figure>
+        <figure class="polaroid">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Dibujo de una torta de cumpleaños">
+            <rect width="200" height="200" fill="#d7f1fb"/>
+            <path d="M20 40l10 10M180 30l-8 12M30 170l12-6M176 160l-10-4" stroke="#e2352c" stroke-width="4" stroke-linecap="round"/>
+            <rect x="40" y="110" width="120" height="60" rx="8" fill="#f29bb0"/>
+            <rect x="52" y="80" width="96" height="36" rx="8" fill="#fff"/>
+            <path d="M40 130c15 10 25-6 40 4s25-6 40 4 25-6 40 4" stroke="#fff" stroke-width="6" fill="none"/>
+            <g fill="#e9b84c"><rect x="70" y="56" width="6" height="26"/><rect x="97" y="52" width="6" height="30"/><rect x="124" y="56" width="6" height="26"/></g>
+            <g fill="#f6b74a"><ellipse cx="73" cy="50" rx="5" ry="8"/><ellipse cx="100" cy="46" rx="5" ry="8"/><ellipse cx="127" cy="50" rx="5" ry="8"/></g>
+          </svg>
+          <figcaption>Cada cumple, primera en llegar</figcaption>
+        </figure>
+        <figure class="polaroid">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Dibujo de una mesa larga de asado familiar">
+            <rect width="200" height="200" fill="#ffd9c7"/>
+            <rect x="20" y="120" width="160" height="14" rx="4" fill="#8b4a2b"/>
+            <rect x="34" y="134" width="8" height="40" fill="#6b3a22"/><rect x="158" y="134" width="8" height="40" fill="#6b3a22"/>
+            <g><circle cx="44" cy="92" r="14" fill="#f2c9a0"/><path d="M28 120c0-14 8-20 16-20s16 6 16 20Z" fill="#e2352c"/></g>
+            <g><circle cx="80" cy="88" r="14" fill="#e8b98e"/><path d="M64 120c0-16 8-22 16-22s16 6 16 22Z" fill="#74d0f4"/></g>
+            <g><circle cx="116" cy="92" r="12" fill="#f2c9a0"/><path d="M102 120c0-12 6-18 14-18s14 6 14 18Z" fill="#43a96b"/></g>
+            <g><circle cx="152" cy="94" r="10" fill="#e8b98e"/><path d="M140 120c0-10 6-16 12-16s12 6 12 16Z" fill="#e9b84c"/></g>
+            <path d="M60 40c10-12 30-12 40 0s30 12 40 0" stroke="#e2352c" stroke-width="4" fill="none"/>
+            <text x="100" y="30" text-anchor="middle" font-family="Caveat, cursive" font-size="22" fill="#6b3a22">domingo</text>
+          </svg>
+          <figcaption>Domingos de mesa larga</figcaption>
+        </figure>
+        <figure class="polaroid">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Dibujo de una tía abrazando a cuatro sobrinos">
+            <rect width="200" height="200" fill="#e3f4d6"/>
+            <g><circle cx="100" cy="64" r="22" fill="#f2c9a0"/><g fill="#e6cf96"><circle cx="82" cy="50" r="10"/><circle cx="92" cy="42" r="10"/><circle cx="108" cy="42" r="10"/><circle cx="118" cy="50" r="10"/><circle cx="78" cy="66" r="9"/><circle cx="122" cy="66" r="9"/></g>
+            <path d="M60 150c0-36 18-56 40-56s40 20 40 56Z" fill="#74d0f4"/></g>
+            <g><circle cx="44" cy="120" r="14" fill="#e8b98e"/><path d="M28 170c0-22 8-34 16-34s16 12 16 34Z" fill="#f29bb0"/></g>
+            <g><circle cx="78" cy="132" r="13" fill="#f2c9a0"/><path d="M64 180c0-20 6-30 14-30s14 10 14 30Z" fill="#e9b84c"/></g>
+            <g><circle cx="122" cy="132" r="13" fill="#e8b98e"/><path d="M108 180c0-20 6-30 14-30s14 10 14 30Z" fill="#43a96b"/></g>
+            <g><circle cx="156" cy="120" r="14" fill="#f2c9a0"/><path d="M140 170c0-22 8-34 16-34s16 12 16 34Z" fill="#e2352c"/></g>
+            <path d="M64 110c-10 6-14 10-14 14M136 110c10 6 14 10 14 14" stroke="#f2c9a0" stroke-width="8" stroke-linecap="round"/>
+            <path d="M92 30c-4-8 6-12 8-4 2-8 12-4 8 4l-8 8Z" fill="#e2352c"/>
+          </svg>
+          <figcaption>Abrazo de tía, versión x4</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="carta">
+    <div class="wrap">
+      <p class="kicker" style="text-align:center">Lo importante</p>
+      <h2 style="text-align:center">Gracias, Flor</h2>
+      <article class="letter">
+        <svg class="stamp" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="44" fill="none" stroke="#e2352c" stroke-width="4" stroke-dasharray="6 4"/>
+          <circle cx="50" cy="50" r="34" fill="none" stroke="#e2352c" stroke-width="2"/>
+          <path fill="#e2352c" d="M50 70s-15-9-19-18c-3-7 1-15 9-15 4 0 7 2 10 5 3-3 6-5 10-5 8 0 12 8 9 15-4 9-19 18-19 18Z"/>
+        </svg>
+        <p class="hello">Querida Flor:</p>
+        <p>Hay personas que hacen que una familia funcione sin que nadie se dé cuenta. Vos sos una de esas. Estás en los cumpleaños y en los días difíciles, en las buenas noticias y en las llamadas de madrugada. Nunca pedís nada a cambio.</p>
+        <p>Para Néstor y Sofía sos la hija que siempre está. Para Carolina y Guido, la hermana con la que se puede contar sin pedirlo dos veces. Para Julia, Sofía, Francisco y Agustina sos la tía que van a recordar toda la vida. Y para mí sos la cuñada que me abrió la puerta de esta familia como si fuera mía.</p>
+        <p>Así que esta página es para decirte lo que no siempre decimos: gracias. Por cuidar a todos, por sostenernos y por el amor que repartís sin medir.</p>
+        <p>Te quiero muchísimo. Aunque seas de Racing.</p>
+        <p class="sign">Rodrigo<span>tu cuñado, del Rojo y de tu equipo para siempre</span></p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Hecho con amor (rojo y celeste) para Florencia · <button class="heart-btn" id="footBtn" type="button">Un abrazo más</button></p>
+  </div>
+</footer>
+
+<script>
+/* ---------- roles rotativos ---------- */
+(function(){
+  const words=["hermana","hija","tía","cuñada","amiga","compañera","persona"];
+  const el=document.getElementById("rot");
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce){el.textContent="hija, hermana, tía, cuñada y amiga";return;}
+  let w=0,i=words[0].length,del=false;
+  function tick(){
+    const word=words[w];
+    if(!del){ i++; if(i>word.length){del=true;return setTimeout(tick,1400);} }
+    else{ i--; if(i<0){del=false;w=(w+1)%words.length;i=0;} }
+    el.textContent=words[w].slice(0,Math.max(0,i));
+    setTimeout(tick,del?55:95);
+  }
+  setTimeout(()=>{del=true;tick()},1800);
+})();
+
+/* ---------- avatares dibujados ---------- */
+function avatar(o){
+  const s=o.skin||"#f2c9a0", h=o.hair||"#5a3320", c=o.shirt||"#74d0f4";
+  const hairs={
+    long:`<path d="M24 50c0-22 12-34 26-34s26 12 26 34v26H62V50H38v26H24Z" fill="${h}"/>`,
+    bob:`<path d="M26 52c0-22 10-32 24-32s24 10 24 32v8H64V48H36v12H26Z" fill="${h}"/>`,
+    short:`<path d="M30 44c0-16 9-24 20-24s20 8 20 24c-4-8-12-11-20-11s-16 3-20 11Z" fill="${h}"/>`,
+    bald:`<path d="M30 46c0-4 2-8 4-10M70 46c0-4-2-8-4-10" stroke="${h}" stroke-width="5" fill="none" stroke-linecap="round"/>`,
+    bun:`<circle cx="50" cy="16" r="9" fill="${h}"/><path d="M30 46c0-16 9-24 20-24s20 8 20 24c-4-9-12-12-20-12s-16 3-20 12Z" fill="${h}"/>`,
+    curly:`<g fill="${h}"><circle cx="34" cy="34" r="9"/><circle cx="44" cy="26" r="9"/><circle cx="56" cy="26" r="9"/><circle cx="66" cy="34" r="9"/><circle cx="30" cy="46" r="7"/><circle cx="70" cy="46" r="7"/></g>`,
+    pony:`<path d="M30 46c0-16 9-24 20-24s20 8 20 24c-4-9-12-12-20-12s-16 3-20 12Z" fill="${h}"/><path d="M70 36c10 4 12 18 6 26" stroke="${h}" stroke-width="8" fill="none" stroke-linecap="round"/>`
+  };
+  const sc=o.small?0.88:1;
+  let shirt=`<path d="M18 100c0-20 14-30 32-30s32 10 32 30Z" fill="${c}"/>`;
+  if(o.stripes) shirt=`<clipPath id="cp${o.id}"><path d="M18 100c0-20 14-30 32-30s32 10 32 30Z"/></clipPath><g clip-path="url(#cp${o.id})"><rect x="0" y="60" width="100" height="40" fill="#fff"/>${[20,36,52,68].map(x=>`<rect x="${x}" y="60" width="8" height="40" fill="#74d0f4"/>`).join("")}</g>`;
+  const extra=(o.mustache?`<path d="M40 58c4-3 8-3 10 0 2-3 6-3 10 0-4 3-16 3-20 0Z" fill="${h}"/>`:"")+
+              (o.glasses?`<g fill="none" stroke="#2b2019" stroke-width="2"><circle cx="42" cy="47" r="6"/><circle cx="58" cy="47" r="6"/><path d="M48 47h4"/></g>`:"")+
+              (o.crown?`<path d="M36 18l5 8 9-10 9 10 5-8 2 14H34Z" fill="#e9b84c" stroke="#b8862a" stroke-width="1.5"/>`:"");
+  return `<svg viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="48" fill="${o.bg||'#2b2019'}"/>
+    <g transform="translate(50 100) scale(${sc}) translate(-50 -100)">
+    ${o.hairBack?hairs[o.hair2||'long']:''}
+    ${shirt}
+    <rect x="44" y="60" width="12" height="12" fill="${s}"/>
+    <circle cx="50" cy="46" r="20" fill="${s}"/>
+    ${hairs[o.style||'short']}
+    <circle cx="43" cy="47" r="2.4" fill="#2b2019"/><circle cx="57" cy="47" r="2.4" fill="#2b2019"/>
+    <circle cx="38" cy="54" r="3.5" fill="#f29bb0" opacity=".6"/><circle cx="62" cy="54" r="3.5" fill="#f29bb0" opacity=".6"/>
+    <path d="M43 56q7 6 14 0" stroke="#2b2019" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    ${extra}
+    </g></svg>`;
+}
+
+const people=[
+  {id:"flor",name:"Florencia",role:"La homenajeada",star:true,
+   a:{style:"curly",hair:"#e6cf96",hairBack:true,hair2:"long",stripes:true,crown:true,bg:"#3a2a1a"},
+   msg:"La que está para todos. La que se acuerda de todo. La que hace que esta familia se sienta familia. Hoy el aplauso es para vos, Flor."},
+  {id:"nestor",name:"Néstor",role:"Papá",
+   a:{style:"bald",hair:"#9a9a9a",mustache:true,glasses:true,shirt:"#43a96b",skin:"#e8b98e"},
+   msg:"Para Néstor, Flor es la hija que llama sin motivo, solo para saber cómo está. Y eso, para un padre, vale más que cualquier regalo."},
+  {id:"sofia-m",name:"Sofía",role:"Mamá",
+   a:{style:"bob",hair:"#b9b2a8",shirt:"#f29bb0"},
+   msg:"Sofía la conoce mejor que nadie: sabe que su hija tiene el corazón más grande de la casa, y que lo heredó de algún lado."},
+  {id:"caro",name:"Carolina",role:"Hermana",
+   a:{style:"long",hair:"#2f1b10",shirt:"#e9b84c"},
+   msg:"Hermanas para todo: para reírse, para discutir cinco minutos y para estar juntas en lo que venga. Carolina sabe que con Flor nunca está sola."},
+  {id:"guido",name:"Guido",role:"Hermano",
+   a:{style:"short",hair:"#3a2416",shirt:"#4a6fd6",skin:"#e8b98e"},
+   msg:"Guido tiene en Flor a la hermana que lo banca sin preguntar y le dice las cosas de frente cuando hace falta."},
+  {id:"rodri",name:"Rodrigo",role:"Cuñado (del Rojo)",
+   a:{style:"short",hair:"#6b6560",glasses:true,shirt:"#e2352c"},
+   msg:"Llegué a esta familia y Flor me recibió como a un hermano más. Solo tenemos una diferencia: los domingos de clásico. Por todo lo demás, gracias."},
+  {id:"julia",name:"Julia",role:"Sobrina",small:true,
+   a:{style:"pony",hair:"#5a3320",shirt:"#f29bb0",small:true},
+   msg:"Julia sabe que la tía Flor es la primera en escuchar, la que guarda los secretos y la que siempre tiene un plan."},
+  {id:"sofia-s",name:"Sofía",role:"Sobrina",small:true,
+   a:{style:"bun",hair:"#3a2416",shirt:"#74d0f4",small:true,skin:"#e8b98e"},
+   msg:"Sofía tiene una tía que la hace reír, la acompaña y le enseña que la familia se cuida todos los días."},
+  {id:"fran",name:"Francisco",role:"Sobrino",small:true,
+   a:{style:"curly",hair:"#4a2a18",shirt:"#43a96b",small:true},
+   msg:"Francisco tiene una tía que juega en serio, festeja sus logros como si fueran un gol en el último minuto y lo quiere sin condiciones."},
+  {id:"agus",name:"Agustina",role:"Sobrina",small:true,
+   a:{style:"long",hair:"#7a4a24",shirt:"#e9b84c",small:true},
+   msg:"Agustina tiene a la tía de los abrazos largos, de las charlas y de los mimos. Una tía de las que no se olvidan."}
+];
+
+(function(){
+  const box=document.getElementById("family"), bubble=document.getElementById("bubble");
+  people.forEach(p=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="person"+(p.star?" star":""); b.id="p-"+p.id;
+    b.setAttribute("aria-pressed","false");
+    b.innerHTML=avatar(Object.assign({id:p.id},p.a))+`<span class="nm">${p.name}</span><span class="rl">${p.role}</span>`;
+    b.addEventListener("click",(e)=>{
+      box.querySelectorAll(".person").forEach(x=>x.setAttribute("aria-pressed","false"));
+      b.setAttribute("aria-pressed","true");
+      bubble.innerHTML=`<b>${p.name} · ${p.role}</b>${p.msg}`;
+      bubble.classList.remove("bounce"); void bubble.offsetWidth; bubble.classList.add("bounce");
+      const r=b.getBoundingClientRect(); burst(r.left+r.width/2, r.top+r.height/3, 22);
+    });
+    box.appendChild(b);
+  });
+  bubble.innerHTML=`<b>${people[0].name} · ${people[0].role}</b>${people[0].msg}`;
+  box.firstChild.setAttribute("aria-pressed","true");
+})();
+
+/* ---------- perdonar ---------- */
+(function(){
+  const quips=["Perdonada. Otra vez.","La quiero igual. Siempre.","Racing tiene suerte de tenerla.","Por ella, hasta aplaudo un gol de la Academia. Casi.","Avellaneda nos separa 300 metros. La familia, cero.","Perdonada en primera instancia y en apelación.","Ya perdí la cuenta. El cariño, no."];
+  let n=1; const c=document.getElementById("count"), q=document.getElementById("quip");
+  document.getElementById("forgive").addEventListener("click",(e)=>{
+    n++;
+    c.firstChild.nodeValue = n>=12 ? "∞" : String(n);
+    q.textContent = n>=12 ? "Infinito. Como lo que la quiero." : quips[(n-2)%quips.length];
+    const r=e.currentTarget.getBoundingClientRect(); burst(r.left+r.width/2,r.top,30,["#74d0f4","#ffffff","#e2352c"]);
+  });
+})();
+
+/* ---------- confeti de corazones ---------- */
+const cv=document.getElementById("fx"), ctx=cv.getContext("2d");
+let parts=[], running=false;
+function size(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}
+size(); addEventListener("resize",size);
+function heart(x,y,s,col,rot){
+  ctx.save();ctx.translate(x,y);ctx.rotate(rot);ctx.scale(s/16,s/16);ctx.fillStyle=col;ctx.beginPath();
+  ctx.moveTo(0,6);ctx.bezierCurveTo(-12,-2,-8,-14,0,-7);ctx.bezierCurveTo(8,-14,12,-2,0,6);ctx.fill();ctx.restore();
+}
+function burst(x,y,count,cols){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  cols=cols||["#e9b84c","#74d0f4","#e2352c","#f29bb0","#ffffff","#43a96b"];
+  for(let i=0;i<count;i++){
+    const a=Math.random()*Math.PI*2, v=3+Math.random()*6;
+    parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-4,s:10+Math.random()*14,c:cols[i%cols.length],r:Math.random()*6,vr:(Math.random()-.5)*.2,life:1});
+  }
+  if(!running){running=true;requestAnimationFrame(loop)}
+}
+function rain(){
+  for(let i=0;i<70;i++) setTimeout(()=>burst(Math.random()*innerWidth,-20,1),i*25);
+}
+function loop(){
+  ctx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{p.vy+=.18;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.life-=.008;
+    ctx.globalAlpha=Math.max(0,p.life);heart(p.x,p.y,p.s,p.c,p.r);});
+  ctx.globalAlpha=1;
+  parts=parts.filter(p=>p.life>0&&p.y<innerHeight+40);
+  if(parts.length) requestAnimationFrame(loop); else {running=false;ctx.clearRect(0,0,cv.width,cv.height)}
+}
+document.getElementById("loveBtn").addEventListener("click",(e)=>{const r=e.currentTarget.getBoundingClientRect();burst(r.left+r.width/2,r.top,60);rain();});
+document.getElementById("footBtn").addEventListener("click",(e)=>{const r=e.currentTarget.getBoundingClientRect();burst(r.left+r.width/2,r.top,50);});
+setTimeout(()=>{const n=document.querySelector(".name").getBoundingClientRect();burst(n.left+n.width/2,n.top+n.height/2,40)},1300);
+</script>
+</body>
+</html>
